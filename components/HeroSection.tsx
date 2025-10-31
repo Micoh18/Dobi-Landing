@@ -5,29 +5,9 @@ import { ArrowRight } from 'lucide-react'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen lg:min-h-[85vh] flex flex-col overflow-hidden">
-      {/* DOBI Navigation Bar */}
-      <nav className="relative z-50 w-full px-6 py-4">
-        <div className="container mx-auto flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full border-2 border-dobi-blue/60 overflow-hidden bg-gradient-to-r from-dobi-blue/20 to-neon-cyan/20 backdrop-blur-sm">
-              <img 
-                src="/dobi-logo.png" 
-                alt="DOBI Logo" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <span className="text-2xl font-bold gradient-text">DOBI</span>
-          </motion.div>
-          
-
-        </div>
-      </nav>
+    <section id="home" className="relative min-h-screen lg:min-h-[85vh] flex flex-col overflow-hidden">
+      {/* Spacer for fixed navbar */}
+      <div className="h-20"></div>
 
       {/* Hero Content */}
       <div className="flex-1 flex items-center justify-center">

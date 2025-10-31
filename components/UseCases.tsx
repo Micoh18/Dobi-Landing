@@ -50,7 +50,7 @@ const useCases = [
 
 export default function UseCases() {
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
+    <section id="use-cases" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Enhanced background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-blue/15 rounded-full blur-3xl animate-pulse-slow"></div>

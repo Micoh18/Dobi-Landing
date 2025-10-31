@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description: 'DOBI: La IA que valida y gestiona activos reales en blockchain. Transparencia, seguridad y automatización para tus inversiones en el nuevo mundo descentralizado.',
   keywords: 'DOBI, AI, blockchain, RWA, real world assets, IoT, DeFi, cryptocurrency',
   authors: [{ name: 'DOBI Protocol' }],
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   openGraph: {
     title: 'DOBI - AI Agent for Real World Assets',
     description: 'Transparencia, seguridad y automatización para tus inversiones en blockchain',

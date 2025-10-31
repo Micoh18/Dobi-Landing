@@ -128,7 +128,7 @@ const roadmapItems = [
 
 export default function Roadmap() {
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-gray to-dobi-dark">
+    <section id="roadmap" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-gray to-dobi-dark">
       {/* Enhanced DOBI-style background */}
       <div className="absolute inset-0 bg-gradient-to-br from-dobi-dark via-dobi-navy/30 to-dobi-dark" />
       

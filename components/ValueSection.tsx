@@ -26,7 +26,7 @@ const values = [
 
 export default function ValueSection() {
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
+    <section id="why-dobi" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Enhanced background with prominent visual elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-dobi-blue/30 via-transparent to-transparent opacity-20"></div>

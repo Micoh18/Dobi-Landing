@@ -35,7 +35,7 @@ const mockData = [
 
 export default function DashboardDemo() {
   return (
-    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
+    <section id="dashboard" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-neon-blue/3 rounded-full blur-3xl"></div>
