@@ -25,7 +25,6 @@ const roadmapItems = [
     description: '360° marketing plan, developer documentation, and partnership pipeline activation',
     details: [
       '360° Marketing Plan: Technical content and use cases',
-      'DOBI Wiki: Complete technical documentation and API references',
       'Developer Relations: Active participation in Base, Virtuals.io and DePIN communities',
       'Partnership Pipeline: Pre-engagement with 10+ DePIN projects'
     ],
@@ -54,6 +53,7 @@ const roadmapItems = [
     title: 'First Partnerships',
     description: 'Enhanced capabilities, official partnerships, and agent-to-agent framework',
     details: [
+      'DOBI Wiki: Complete technical documentation and API references',
       'DOBI V1.1: Ticket management, bill processing, transaction verification',
       '2-3 Ecosystem Partnerships: Official Base/Virtuals collaborations',
       'A2A Protocol v0.1: Basic inter-agent communication',
