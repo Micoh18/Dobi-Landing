@@ -6,7 +6,7 @@ import { Calendar, Globe, Link, CheckCircle, Bot, DollarSign, Users, Shield, Zap
 const roadmapItems = [
   {
     quarter: 'Aug 2025',
-    status: 'in_progress',
+    status: 'completed',
     title: 'Reactivation & Foundations',
     description: 'Community reactivation, TEE architecture implementation, and Virtuals.io integration',
     details: [
@@ -20,7 +20,7 @@ const roadmapItems = [
   },
   {
     quarter: 'Sep 2025',
-    status: 'upcoming',
+    status: 'in_progress',
     title: 'Community & Marketing',
     description: '360° marketing plan, developer documentation, and partnership pipeline activation',
     details: [
@@ -269,14 +269,14 @@ export default function Roadmap() {
                         whileHover={{ scale: 1.02 }}
                         className={`bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border ${
                           item.status === 'completed' ? 'border-green-500/50' :
-                          item.status === 'in-progress' ? 'border-neon-blue/50' :
+                          item.status === 'in_progress' ? 'border-neon-blue/50' :
                           'border-gray-600/50'
                         } rounded-2xl p-4 hover:border-neon-purple/50 transition-all duration-300`}
                       >
                         {/* Quarter badge */}
                         <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-3 ${
                           item.status === 'completed' ? 'bg-green-500/20 text-green-400' :
-                          item.status === 'in-progress' ? 'bg-blue-500/20 text-blue-400' :
+                          item.status === 'in_progress' ? 'bg-blue-500/20 text-blue-400' :
                           'bg-gray-600/20 text-gray-400'
                         }`}>
                           <Calendar className="w-3 h-3" />
@@ -330,14 +330,14 @@ export default function Roadmap() {
                         whileHover={{ scale: 1.02 }}
                         className={`bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border ${
                           item.status === 'completed' ? 'border-green-500/50' :
-                          item.status === 'in-progress' ? 'border-neon-blue/50' :
+                          item.status === 'in_progress' ? 'border-neon-blue/50' :
                           'border-gray-600/50'
                         } rounded-2xl p-6 hover:border-neon-purple/50 transition-all duration-300`}
                       >
                         {/* Quarter badge */}
                         <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-4 ${
                           item.status === 'completed' ? 'bg-green-500/20 text-green-400' :
-                          item.status === 'in-progress' ? 'bg-blue-500/20 text-blue-400' :
+                          item.status === 'in_progress' ? 'bg-blue-500/20 text-blue-400' :
                           'bg-gray-600/20 text-gray-400'
                         }`}>
                           <Calendar className="w-3 h-3" />
