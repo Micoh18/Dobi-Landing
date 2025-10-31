@@ -49,26 +49,8 @@ const fairLaunchPoints = [
   'Initial liquidity for price discovery'
 ]
 
-
-
 export default function Tokenomics() {
   const [hoveredSlice, setHoveredSlice] = useState<string | null>(null)
-  const [showTooltip, setShowTooltip] = useState(false)
-
-  const chartData = [
-    {
-      name: 'Public Sale',
-      value: tokenomicsData.publicAllocation,
-      color: '#00D4FF',
-      description: 'Open to all participants'
-    },
-    {
-      name: 'Liquidity Pool',
-      value: tokenomicsData.liquidityPool,
-      color: '#A855F7',
-      description: 'DEX liquidity provision'
-    }
-  ]
 
   // Calculate stroke offsets for donut chart
   const radius = 90
@@ -77,15 +59,15 @@ export default function Tokenomics() {
   const liquidityStroke = (tokenomicsData.liquidityPool / 100) * circumference
 
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Enhanced background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-dobi-blue/15 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-neon-purple/15 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
       </div>
       
-      {/* Tech grid overlay */}
-      <div className="absolute inset-0 opacity-5" 
+      {/* Consistent tech grid overlay */}
+      <div className="absolute inset-0 opacity-[0.08]" 
            style={{
              backgroundImage: `
                linear-gradient(rgba(0, 212, 255, 0.6) 1px, transparent 1px),
@@ -109,7 +91,7 @@ export default function Tokenomics() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
           >
             Tokenomics — <span className="gradient-text">Virtuals.io Fair Launch</span>
           </motion.h2>
@@ -284,7 +266,7 @@ export default function Tokenomics() {
                   whileHover={{ scale: 1.02 }}
                   className="group"
                 >
-                  <div className="bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/60 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl p-6 hover:border-dobi-blue/40 transition-all duration-300">
+                  <div className="bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/60 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl p-6 hover:border-dobi-blue/50 transition-all duration-500 shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10">
                     <div className="flex items-start justify-between mb-4">
                       <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${card.gradient} p-3 group-hover:scale-110 transition-transform duration-300`}>
                         <Icon className="w-full h-full text-white" />

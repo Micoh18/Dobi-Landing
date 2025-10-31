@@ -1,11 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Bot, Shield, Zap } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen lg:min-h-[80vh] flex flex-col overflow-hidden">
+    <section className="relative min-h-screen lg:min-h-[85vh] flex flex-col overflow-hidden">
       {/* DOBI Navigation Bar */}
       <nav className="relative z-50 w-full px-6 py-4">
         <div className="container mx-auto flex items-center justify-between">
@@ -150,7 +150,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mb-8 leading-tight text-futuristic"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mb-10 leading-[1.1] text-futuristic tracking-tight"
           >
             <span className="gradient-text text-glow">DOBI:</span>
             <br className="md:hidden" />
@@ -165,7 +165,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-2xl md:text-3xl text-gray-300 mb-12 lg:mb-16 max-w-5xl mx-auto leading-relaxed font-light"
+            className="text-lg md:text-xl lg:text-2xl text-gray-300/90 mb-12 lg:mb-16 max-w-4xl mx-auto leading-relaxed font-normal"
           >
             Verifies device data and distributes RWA payouts onchain
           </motion.p>
@@ -177,16 +177,16 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-8 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
             <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group btn-primary flex items-center gap-4 text-xl font-bold px-12 py-5 cursor-default"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group btn-primary flex items-center gap-4 text-lg md:text-xl font-bold px-8 md:px-12 py-4 md:py-5 cursor-default"
             >
-              <span className="relative z-10 flex items-center gap-4">
+              <span className="relative z-10 flex items-center gap-3 md:gap-4">
                 Dashboard (Coming Soon)
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </motion.div>
 
@@ -194,13 +194,13 @@ export default function HeroSection() {
               href="https://app.uniswap.org/explore/tokens/base/0x931ef8053e997b1bab68d1e900a061305c0ff4fb?inputCurrency=0x931ef8053e997b1bab68d1e900a061305c0ff4fb"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group btn-secondary flex items-center gap-4 text-xl font-bold px-12 py-5"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              className="group btn-secondary flex items-center gap-4 text-lg md:text-xl font-bold px-8 md:px-12 py-4 md:py-5"
             >
-              <span className="relative z-10 flex items-center gap-4">
+              <span className="relative z-10 flex items-center gap-3 md:gap-4">
                 Buy $DOBI
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </motion.a>
           </motion.div>

@@ -36,7 +36,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/30 to-dobi-dark">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/30 to-dobi-dark">
       {/* Enhanced background with circuit-like patterns */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-neon-blue/20 rounded-full blur-3xl animate-pulse-slow"></div>
@@ -49,12 +49,12 @@ export default function HowItWorks() {
         </div>
       </div>
       
-      {/* Tech grid overlay */}
-      <div className="absolute inset-0 opacity-10" 
+      {/* Consistent tech grid overlay */}
+      <div className="absolute inset-0 opacity-[0.08]" 
            style={{
              backgroundImage: `
-               linear-gradient(rgba(0, 212, 255, 0.8) 1px, transparent 1px),
-               linear-gradient(90deg, rgba(0, 212, 255, 0.8) 1px, transparent 1px)
+               linear-gradient(rgba(0, 212, 255, 0.6) 1px, transparent 1px),
+               linear-gradient(90deg, rgba(0, 212, 255, 0.6) 1px, transparent 1px)
              `,
              backgroundSize: '100px 100px'
            }} 
@@ -74,7 +74,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-futuristic"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
           >
             How does{' '}
             <span className="gradient-text text-glow">DOBI</span> work?
@@ -85,7 +85,7 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed"
           >
             A simple and automatic process that transforms physical assets into secure digital investments
           </motion.p>
@@ -117,7 +117,7 @@ export default function HowItWorks() {
                   </div>
                 )}
 
-                <div className="relative bg-gradient-to-br from-dobi-gray/20 to-dobi-dark/80 backdrop-blur-xl border border-dobi-blue/40 rounded-2xl p-8 h-full hover:border-dobi-blue/80 transition-all duration-300 group-hover:transform group-hover:scale-105">
+                <div className="relative bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl p-8 h-full hover:border-dobi-blue/50 transition-all duration-500 group-hover:transform group-hover:scale-[1.02] shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10">
                   {/* Card tech effects */}
                   <div className="absolute inset-0 bg-gradient-to-br from-dobi-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-80"></div>

@@ -50,15 +50,15 @@ const useCases = [
 
 export default function UseCases() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Enhanced background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-neon-blue/15 rounded-full blur-3xl animate-pulse-slow"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-neon-purple/15 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
       </div>
       
-      {/* Tech grid overlay */}
-      <div className="absolute inset-0 opacity-8" 
+      {/* Consistent tech grid overlay */}
+      <div className="absolute inset-0 opacity-[0.08]" 
            style={{
              backgroundImage: `
                linear-gradient(rgba(0, 212, 255, 0.6) 1px, transparent 1px),
@@ -88,7 +88,7 @@ export default function UseCases() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-futuristic"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
           >
             Real-world{' '}
             <span className="gradient-text text-glow">Use Cases</span>
@@ -99,7 +99,7 @@ export default function UseCases() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed"
           >
             DOBI is already transforming industries with practical AI solutions for asset validation and automated management
           </motion.p>
@@ -119,9 +119,9 @@ export default function UseCases() {
                 whileHover={{ y: -10 }}
                 className="group"
               >
-                <div className="relative h-full rounded-2xl bg-gradient-to-br from-dobi-gray/20 to-dobi-dark/80 backdrop-blur-xl border border-dobi-blue/30 p-8 hover:border-dobi-blue/60 transition-all duration-300">
+                <div className="relative h-full rounded-2xl bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 p-8 hover:border-dobi-blue/50 transition-all duration-500 shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10">
                   {/* Enhanced background effects */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-8 transition-opacity duration-300`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`}></div>
                   <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-60"></div>
                   <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-40"></div>
                   

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, Globe, Link, Cpu, Image, CheckCircle, Bot, DollarSign, Users, Shield, Zap, Target } from 'lucide-react'
+import { Calendar, Globe, Link, CheckCircle, Bot, DollarSign, Users, Shield, Zap, Target } from 'lucide-react'
 
 const roadmapItems = [
   {
@@ -128,7 +128,7 @@ const roadmapItems = [
 
 export default function Roadmap() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-gray to-dobi-dark">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-gray to-dobi-dark">
       {/* Enhanced DOBI-style background */}
       <div className="absolute inset-0 bg-gradient-to-br from-dobi-dark via-dobi-navy/30 to-dobi-dark" />
       
@@ -139,12 +139,12 @@ export default function Roadmap() {
         <div className="absolute top-1/2 right-1/6 w-64 h-64 bg-neon-cyan/15 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}} />
       </div>
       
-      {/* Enhanced futuristic grid overlay */}
-      <div className="absolute inset-0 opacity-10" 
+      {/* Consistent futuristic grid overlay */}
+      <div className="absolute inset-0 opacity-[0.08]" 
            style={{
              backgroundImage: `
-               linear-gradient(rgba(0, 212, 255, 0.8) 1px, transparent 1px),
-               linear-gradient(90deg, rgba(0, 212, 255, 0.8) 1px, transparent 1px)
+               linear-gradient(rgba(0, 212, 255, 0.6) 1px, transparent 1px),
+               linear-gradient(90deg, rgba(0, 212, 255, 0.6) 1px, transparent 1px)
              `,
              backgroundSize: '60px 60px'
            }} 
@@ -208,7 +208,7 @@ export default function Roadmap() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
           >
             DOBI 2025-26{' '}
             <span className="gradient-text">Roadmap</span>

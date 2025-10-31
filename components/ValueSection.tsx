@@ -26,15 +26,15 @@ const values = [
 
 export default function ValueSection() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Enhanced background with prominent visual elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-dobi-blue/30 via-transparent to-transparent opacity-20"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_var(--tw-gradient-stops))] from-neon-purple/30 via-transparent to-transparent opacity-20"></div>
       </div>
       
-      {/* More prominent grid overlay */}
-      <div className="absolute inset-0 opacity-15" 
+      {/* Consistent grid overlay */}
+      <div className="absolute inset-0 opacity-[0.08]" 
            style={{
              backgroundImage: `
                linear-gradient(rgba(0, 212, 255, 0.6) 1px, transparent 1px),
@@ -64,7 +64,7 @@ export default function ValueSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-futuristic"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
           >
             Why choose{' '}
             <span className="gradient-text text-glow">DOBI</span>?
@@ -75,7 +75,7 @@ export default function ValueSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed"
           >
             We revolutionize real asset management with blockchain technology and artificial intelligence
           </motion.p>
@@ -95,7 +95,7 @@ export default function ValueSection() {
                 whileHover={{ y: -10 }}
                 className="group"
               >
-                <div className="relative p-8 h-full bg-gradient-to-br from-dobi-gray/20 to-dobi-dark/60 backdrop-blur-xl border border-dobi-blue/30 rounded-2xl hover:border-dobi-blue/60 transition-all duration-300 group overflow-hidden">
+                <div className="relative p-8 h-full bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl hover:border-dobi-blue/50 transition-all duration-500 group overflow-hidden shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10">
                   {/* Card background effects */}
                   <div className="absolute inset-0 bg-gradient-to-br from-dobi-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-60"></div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight, Users, DollarSign, Sparkles, MessageCircle } from 'lucide-react'
+import { ArrowRight, Users, DollarSign, Sparkles } from 'lucide-react'
 
 // Custom Twitter/X Icon Component
 const TwitterIcon = ({ className }: { className?: string }) => (
@@ -26,7 +26,7 @@ const socialLinks = [
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-24 px-6 overflow-hidden">
+    <section className="relative py-32 px-6 overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Animated background */}
       <div className="absolute inset-0 animated-bg">
         <div className="absolute inset-0 bg-gradient-to-r from-dobi-dark/90 to-dobi-gray/90"></div>
@@ -110,7 +110,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-futuristic"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight text-futuristic"
           >
             <span className="gradient-text text-glow">DOBI:</span> the onchain AI agent
             <br />
@@ -125,7 +125,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             viewport={{ once: true }}
-            className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-gray-300/90 mb-12 max-w-4xl mx-auto leading-relaxed"
           >
             Join the revolution that is transforming how we validate, manage and invest in real world assets
           </motion.p>
@@ -148,7 +148,7 @@ export default function FinalCTA() {
                 y: -3
               }}
               whileTap={{ scale: 0.95 }}
-              className="group relative bg-gradient-to-r from-dobi-blue to-electric-blue text-white px-12 py-5 rounded-2xl font-bold text-xl flex items-center gap-4 transition-all duration-300 overflow-hidden shadow-glow-blue"
+              className="group relative bg-gradient-to-r from-dobi-blue to-electric-blue text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl flex items-center gap-3 md:gap-4 transition-all duration-300 overflow-hidden shadow-glow-blue"
             >
               <span className="relative z-10 flex items-center gap-3">
                 <Users className="w-6 h-6" />
@@ -168,7 +168,7 @@ export default function FinalCTA() {
                 y: -3
               }}
               whileTap={{ scale: 0.95 }}
-              className="group relative bg-transparent border-3 border-neon-purple text-neon-purple px-12 py-5 rounded-2xl font-bold text-xl hover:bg-neon-purple hover:text-white transition-all duration-300 overflow-hidden"
+              className="group relative bg-transparent border-2 border-neon-purple text-neon-purple px-8 md:px-12 py-4 md:py-5 rounded-2xl font-bold text-lg md:text-xl hover:bg-neon-purple hover:text-white transition-all duration-300 overflow-hidden shadow-lg shadow-neon-purple/10 hover:shadow-xl hover:shadow-neon-purple/20"
             >
               <span className="relative z-10 flex items-center gap-3">
                 <DollarSign className="w-6 h-6" />

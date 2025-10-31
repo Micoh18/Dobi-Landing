@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Monitor, Activity, DollarSign, Shield, ArrowRight, Eye, BarChart3, Zap } from 'lucide-react'
+import { Monitor, Activity, DollarSign, Shield, ArrowRight, BarChart3, Zap } from 'lucide-react'
 
 const dashboardFeatures = [
   {
@@ -35,7 +35,7 @@ const mockData = [
 
 export default function DashboardDemo() {
   return (
-    <section className="py-24 px-6 relative overflow-hidden">
+    <section className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-neon-blue/3 rounded-full blur-3xl"></div>
@@ -56,7 +56,7 @@ export default function DashboardDemo() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
           >
             <span className="gradient-text">Dashboard</span> Demo
           </motion.h2>
@@ -82,7 +82,7 @@ export default function DashboardDemo() {
             className="relative"
           >
             {/* Main dashboard container */}
-            <div className="relative bg-gradient-to-br from-dobi-gray/90 to-dobi-dark/90 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 shadow-2xl">
+            <div className="relative bg-gradient-to-br from-dobi-gray/40 to-dobi-dark/60 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl p-6 shadow-2xl hover:border-dobi-blue/40 transition-all duration-500">
               {/* Dashboard header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
