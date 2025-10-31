@@ -6,7 +6,6 @@ import { Calendar, Globe, Link, CheckCircle, Bot, DollarSign, Users, Shield, Zap
 const roadmapItems = [
   {
     quarter: 'Aug 2025',
-    status: 'completed',
     title: 'Reactivation & Foundations',
     description: 'Community reactivation, TEE architecture implementation, and Virtuals.io integration',
     details: [
@@ -20,7 +19,6 @@ const roadmapItems = [
   },
   {
     quarter: 'Sep 2025',
-    status: 'in_progress',
     title: 'Community & Marketing',
     description: '360° marketing plan, developer documentation, and partnership pipeline activation',
     details: [
@@ -34,7 +32,6 @@ const roadmapItems = [
   },
   {
     quarter: 'Oct 2025',
-    status: 'upcoming',
     title: 'Product V1 + Pre-agreements',
     description: 'Core validation engine launch with device integration and pilot program',
     details: [
@@ -49,15 +46,13 @@ const roadmapItems = [
   },
   {
     quarter: 'Nov 2025',
-    status: 'upcoming',
     title: 'First Partnerships',
     description: 'Enhanced capabilities, official partnerships, and agent-to-agent framework',
     details: [
+      'Integration of x402 protocol in Production',
       'DOBI Wiki: Complete technical documentation and API references',
-      'DOBI V1.1: Ticket management, bill processing, transaction verification',
       '2-3 Ecosystem Partnerships: Official Base/Virtuals collaborations',
-      'A2A Protocol v0.1: Basic inter-agent communication',
-      'Settlement Layer: Payment layer for inter-agent services'
+      'A2A Protocol v0.1: Basic inter-agent communication'
     ],
     kpis: '3+ active partnerships, 100+ validated transactions, A2A with 1+ agents',
     icon: Link,
@@ -65,7 +60,6 @@ const roadmapItems = [
   },
   {
     quarter: 'Dec 2025',
-    status: 'upcoming',
     title: 'Client MVPs',
     description: 'Testing with real clients, SDK release, and revenue validation',
     details: [
@@ -79,7 +73,6 @@ const roadmapItems = [
   },
   {
     quarter: 'Q1 2026',
-    status: 'upcoming',
     title: 'Robustness & Token Utility',
     description: 'Enterprise-grade features, staking with slashing, and cross-chain expansion',
     details: [
@@ -94,7 +87,6 @@ const roadmapItems = [
   },
   {
     quarter: 'Q2 2026',
-    status: 'upcoming',
     title: 'A2A & Marketplace v1',
     description: 'Agent-to-agent economy, service marketplace, and operational scale',
     details: [
@@ -109,7 +101,6 @@ const roadmapItems = [
   },
   {
     quarter: 'Q3 2026',
-    status: 'upcoming',
     title: 'Revenue Engine & Scale',
     description: 'Revenue diversification, "Machines Pay Bills" campaign, and V2 preview',
     details: [
@@ -267,18 +258,10 @@ export default function Roadmap() {
                     <div className="flex-1 pb-8">
                       <motion.div
                         whileHover={{ scale: 1.02 }}
-                        className={`bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border ${
-                          item.status === 'completed' ? 'border-green-500/50' :
-                          item.status === 'in_progress' ? 'border-neon-blue/50' :
-                          'border-gray-600/50'
-                        } rounded-2xl p-4 hover:border-neon-purple/50 transition-all duration-300`}
+                        className="bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-4 hover:border-neon-purple/50 transition-all duration-300"
                       >
                         {/* Quarter badge */}
-                        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-3 ${
-                          item.status === 'completed' ? 'bg-green-500/20 text-green-400' :
-                          item.status === 'in_progress' ? 'bg-blue-500/20 text-blue-400' :
-                          'bg-gray-600/20 text-gray-400'
-                        }`}>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-3 bg-gray-600/20 text-gray-400">
                           <Calendar className="w-3 h-3" />
                           {item.quarter}
                         </div>
@@ -306,18 +289,6 @@ export default function Roadmap() {
                           </div>
                         )}
 
-                        {/* Status indicator */}
-                        <div className="flex items-center gap-2">
-                          {item.status === 'completed' && (
-                            <span className="text-green-400 text-sm font-medium">✓ Completed</span>
-                          )}
-                          {item.status === 'in_progress' && (
-                            <span className="text-green-300 text-sm font-medium">🔄 In Progress</span>
-                          )}
-                          {item.status === 'upcoming' && (
-                            <span className="text-gray-400 text-sm font-medium">⏳ Upcoming</span>
-                          )}
-                        </div>
                       </motion.div>
                     </div>
                   </div>
@@ -328,18 +299,10 @@ export default function Roadmap() {
                     <div className={`w-5/12 ${isLeft ? 'text-right pr-8' : 'text-left pl-8'}`}>
                       <motion.div
                         whileHover={{ scale: 1.02 }}
-                        className={`bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border ${
-                          item.status === 'completed' ? 'border-green-500/50' :
-                          item.status === 'in_progress' ? 'border-neon-blue/50' :
-                          'border-gray-600/50'
-                        } rounded-2xl p-6 hover:border-neon-purple/50 transition-all duration-300`}
+                        className="bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-6 hover:border-neon-purple/50 transition-all duration-300"
                       >
                         {/* Quarter badge */}
-                        <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-4 ${
-                          item.status === 'completed' ? 'bg-green-500/20 text-green-400' :
-                          item.status === 'in_progress' ? 'bg-blue-500/20 text-blue-400' :
-                          'bg-gray-600/20 text-gray-400'
-                        }`}>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-4 bg-gray-600/20 text-gray-400">
                           <Calendar className="w-3 h-3" />
                           {item.quarter}
                         </div>
@@ -367,18 +330,6 @@ export default function Roadmap() {
                           </div>
                         )}
 
-                        {/* Status indicator */}
-                        <div className={`mt-4 flex items-center gap-2 ${isLeft ? 'justify-end' : 'justify-start'}`}>
-                          {item.status === 'completed' && (
-                            <span className="text-green-400 text-sm font-medium">✓ Completed</span>
-                          )}
-                          {item.status === 'in_progress' && (
-                            <span className="text-green-300 text-sm font-medium">🔄 In Progress</span>
-                          )}
-                          {item.status === 'upcoming' && (
-                            <span className="text-gray-400 text-sm font-medium">⏳ Upcoming</span>
-                          )}
-                        </div>
                       </motion.div>
                     </div>
 

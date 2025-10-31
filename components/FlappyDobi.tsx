@@ -141,7 +141,7 @@ export default function FlappyDobi() {
               </h3>
               <p className="text-gray-300 leading-relaxed mb-6">
                 Flappy DOBI is the official DOBI community game deployed on Farcaster. 
-                Show off your skills, compete with other players, and be part of a gamified 
+                Show off your skills, and be part of a gamified 
                 community where entertainment meets blockchain.
               </p>
             </div>

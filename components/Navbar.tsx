@@ -8,7 +8,6 @@ const navItems = [
   { name: 'Use Cases', href: '#use-cases' },
   { name: 'Flappy DOBI', href: '#flappy-dobi' },
   { name: 'Roadmap', href: '#roadmap' },
-  { name: 'Dashboard', href: '#dashboard' },
   { name: 'Tokenomics', href: '#tokenomics' },
 ]
 

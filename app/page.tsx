@@ -4,7 +4,6 @@ import ValueSection from '../components/ValueSection'
 import HowItWorks from '../components/HowItWorks'
 import UseCases from '../components/UseCases'
 import Roadmap from '../components/Roadmap'
-import DashboardDemo from '../components/DashboardDemo'
 import Tokenomics from '../components/Tokenomics'
 import FlappyDobi from '../components/FlappyDobi'
 import FinalCTA from '../components/FinalCTA'
@@ -24,7 +23,6 @@ export default function Home() {
         <UseCases />
         <FlappyDobi />
         <Roadmap />
-        <DashboardDemo />
         <Tokenomics />
         <FinalCTA />
       </div>
