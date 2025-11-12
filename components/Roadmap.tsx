@@ -1,7 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import {
+  useScroll,
+  useTransform,
+  motion,
+} from 'framer-motion'
 import { Calendar, Globe, Link, CheckCircle, Bot, DollarSign, Users, Shield, Zap, Target } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import GradientText from '@/components/ui/GradientText'
 
 const roadmapItems = [
@@ -16,7 +21,8 @@ const roadmapItems = [
     ],
     kpis: '200+ active holders, 1,000+ social interactions, 90+ PageSpeed score',
     icon: Bot,
-    color: 'from-dobi-blue to-electric-blue'
+    color: 'from-dobi-blue to-electric-blue',
+    variant: 'primary'
   },
   {
     quarter: 'Sep 2025',
@@ -29,7 +35,8 @@ const roadmapItems = [
     ],
     kpis: '5,000+ content views, 3+ partnerships in pipeline',
     icon: Users,
-    color: 'from-neon-purple to-dobi-magenta'
+    color: 'from-neon-purple to-dobi-magenta',
+    variant: 'secondary'
   },
   {
     quarter: 'Oct 2025',
@@ -43,7 +50,8 @@ const roadmapItems = [
     ],
     kpis: 'V1 on mainnet 99.5%+ uptime, 100+ validations, 2+ signed agreements',
     icon: Zap,
-    color: 'from-electric-blue to-neon-cyan'
+    color: 'from-electric-blue to-neon-cyan',
+    variant: 'primary'
   },
   {
     quarter: 'Nov 2025',
@@ -57,7 +65,8 @@ const roadmapItems = [
     ],
     kpis: '3+ active partnerships, 100+ validated transactions, A2A with 1+ agents',
     icon: Link,
-    color: 'from-dobi-blue to-neon-cyan'
+    color: 'from-dobi-blue to-neon-cyan',
+    variant: 'secondary'
   },
   {
     quarter: 'Dec 2025',
@@ -70,7 +79,8 @@ const roadmapItems = [
     ],
     kpis: 'SDK used by 10+ developers, 95%+ validation success rate',
     icon: DollarSign,
-    color: 'from-green-500 to-emerald-400'
+    color: 'from-green-500 to-emerald-400',
+    variant: 'primary'
   },
   {
     quarter: 'Q1 2026',
@@ -84,7 +94,8 @@ const roadmapItems = [
     ],
     kpis: '2+ enterprise clients, cross-chain operational',
     icon: Shield,
-    color: 'from-purple-500 to-pink-400'
+    color: 'from-purple-500 to-pink-400',
+    variant: 'secondary'
   },
   {
     quarter: 'Q2 2026',
@@ -98,7 +109,8 @@ const roadmapItems = [
     ],
     kpis: '$10,000+ MRR, 50+ monitored devices, 95%+ SLA compliance',
     icon: Globe,
-    color: 'from-indigo-500 to-blue-400'
+    color: 'from-indigo-500 to-blue-400',
+    variant: 'primary'
   },
   {
     quarter: 'Q3 2026',
@@ -112,26 +124,135 @@ const roadmapItems = [
     ],
     kpis: '$15,000+ MRR, DOBI V2 deployed, 2026-27 roadmap published',
     icon: Target,
-    color: 'from-orange-500 to-red-400'
+    color: 'from-orange-500 to-red-400',
+    variant: 'secondary'
   }
 ]
 
+interface MilestoneCardProps {
+  item: typeof roadmapItems[0]
+  index: number
+}
 
+function MilestoneCard({ item, index }: MilestoneCardProps) {
+  const Icon = item.icon
+  const isPrimary = item.variant === 'primary'
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="relative rounded-2xl p-6 md:p-8 backdrop-blur-md border transition-all duration-300 bg-gradient-to-br from-dobi-gray/60 via-dobi-dark/60 to-dobi-gray/60 border-gray-600/30 hover:border-dobi-blue/40 hover:shadow-xl hover:shadow-dobi-blue/10"
+    >
+      {/* Subtle background gradient */}
+      <div className={`absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-br ${item.color} opacity-5`} />
+
+      {/* Date badge */}
+      <div className={`
+        inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-6 uppercase tracking-wider border
+        ${isPrimary 
+          ? 'bg-dobi-blue/10 text-dobi-blue border-dobi-blue/20' 
+          : 'bg-neon-purple/10 text-neon-purple border-neon-purple/20'
+        }
+      `}>
+        <Calendar className="w-3 h-3" />
+        {item.quarter}
+      </div>
+
+      {/* Title */}
+      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white leading-tight">
+        {item.title}
+      </h3>
+
+      {/* Description - always visible */}
+      <p className="text-gray-300 leading-relaxed mb-6 text-base md:text-lg" style={{ lineHeight: '1.7', letterSpacing: '0.01em' }}>
+        {item.description}
+      </p>
+
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-600/30 to-transparent mb-6" />
+
+      {/* Key Deliverables */}
+      <div className="mb-6">
+        <h4 className="text-sm font-semibold text-dobi-blue uppercase tracking-wide mb-3">
+          Key Deliverables
+        </h4>
+        
+        <ul className="space-y-3 text-sm text-gray-400" style={{ lineHeight: '1.6' }}>
+          {item.details.map((detail, i) => (
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.3, delay: i * 0.05 }}
+              viewport={{ once: true }}
+              className="flex items-start gap-3"
+            >
+              <CheckCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-dobi-blue" />
+              <span className="flex-1">{detail}</span>
+            </motion.li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Divider */}
+      {item.kpis && (
+        <div className="h-px bg-gradient-to-r from-transparent via-gray-600/30 to-transparent mb-6" />
+      )}
+
+      {/* Success Metrics - Always visible but compact */}
+      {item.kpis && (
+        <div>
+          <h4 className="text-sm font-semibold text-neon-purple uppercase tracking-wide mb-2">
+            Success Metrics
+          </h4>
+          <p className="text-sm text-gray-400 leading-relaxed" style={{ lineHeight: '1.6' }}>
+            {item.kpis}
+          </p>
+        </div>
+      )}
+
+      {/* Subtle accent line at bottom */}
+      <div className={`absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r ${item.color} opacity-0 group-hover:opacity-30 transition-opacity duration-300 rounded-b-2xl`} />
+    </motion.div>
+  )
+}
 
 export default function Roadmap() {
+  const ref = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [height, setHeight] = useState(0)
+
+  useEffect(() => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect()
+      setHeight(rect.height)
+    }
+  }, [ref])
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 10%', 'end 50%'],
+  })
+
+  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height])
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1])
+
   return (
-    <section id="roadmap" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-gray to-dobi-dark">
-      {/* Enhanced DOBI-style background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dobi-dark via-dobi-navy/30 to-dobi-dark" />
-      
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-dobi-blue/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neon-purple/20 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}} />
-        <div className="absolute top-1/2 right-1/6 w-64 h-64 bg-neon-cyan/15 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '4s'}} />
+    <section 
+      id="roadmap" 
+      className="py-32 md:py-40 px-6 relative overflow-hidden bg-gradient-to-b from-dobi-dark via-dobi-navy/20 to-dobi-dark"
+      ref={containerRef}
+    >
+      {/* Background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-dobi-blue/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neon-purple/10 rounded-full blur-3xl animate-pulse-slow" style={{animationDelay: '2s'}} />
       </div>
       
-      {/* Consistent futuristic grid overlay */}
+      {/* Grid overlay */}
       <div className="absolute inset-0 opacity-[0.08]" 
            style={{
              backgroundImage: `
@@ -142,48 +263,10 @@ export default function Roadmap() {
            }} 
       />
       
-      {/* Diagonal accent lines */}
+      {/* Accent lines */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-40" />
-        <div className="absolute bottom-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-40" />
-        <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-transparent via-dobi-blue to-transparent opacity-30" />
-        <div className="absolute bottom-0 right-0 h-full w-1 bg-gradient-to-b from-transparent via-neon-purple to-transparent opacity-30" />
-      </div>
-      
-
-
-
-
-
-      
-
-      
-      {/* Floating geometric elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-1/3 left-10 w-4 h-4 bg-dobi-blue rounded-full blur-sm opacity-60"
-          animate={{ 
-            y: [-20, 20, -20],
-            x: [-10, 10, -10]
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute bottom-1/3 right-10 w-6 h-6 bg-neon-purple rounded-full blur-sm opacity-50"
-          animate={{ 
-            y: [20, -20, 20],
-            x: [10, -10, 10]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-        <motion.div
-          className="absolute top-2/3 left-1/3 w-3 h-3 bg-neon-cyan rounded-full blur-sm opacity-70"
-          animate={{ 
-            scale: [1, 1.5, 1],
-            opacity: [0.3, 0.7, 0.3]
-          }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        />
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-40" />
+        <div className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-r from-transparent via-neon-purple to-transparent opacity-40" />
       </div>
 
       <div className="container mx-auto max-w-7xl relative z-10">
@@ -193,14 +276,14 @@ export default function Roadmap() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20 md:mb-24"
         >
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
           >
             DOBI 2025-26{' '}
             <GradientText variant="hero">Roadmap</GradientText>
@@ -211,155 +294,74 @@ export default function Roadmap() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-300 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed"
           >
             AI Agent for Real-World Asset Validation - From reactivation to revenue scale
           </motion.p>
         </motion.div>
 
-        {/* Roadmap timeline */}
-        <div className="relative">
-          {/* Timeline line - only on desktop */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-neon-blue via-neon-purple to-neon-blue opacity-30 hidden lg:block"></div>
-          
-          {/* Mobile timeline line */}
-          <div className="absolute left-8 top-0 h-full w-1 bg-gradient-to-b from-neon-blue via-neon-purple to-neon-blue opacity-30 lg:hidden"></div>
-
-          <div className="space-y-8 lg:space-y-16">
-            {roadmapItems.map((item, index) => {
-              const Icon = item.icon
-              const isLeft = index % 2 === 0
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  {/* Mobile Layout */}
-                  <div className="flex items-start gap-6 lg:hidden">
-                    {/* Mobile Timeline node */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                      viewport={{ once: true }}
-                      className="relative flex-shrink-0"
-                    >
-                      <div className={`w-12 h-12 rounded-full bg-gradient-to-r ${item.color} p-3 border-4 border-dobi-dark shadow-lg`}>
-                        <Icon className="w-full h-full text-white" />
-                      </div>
-                      <div className={`absolute inset-0 w-12 h-12 rounded-full bg-gradient-to-r ${item.color} opacity-20 blur-xl animate-pulse`}></div>
-                    </motion.div>
-
-                    {/* Mobile Content */}
-                    <div className="flex-1 pb-8">
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-4 hover:border-neon-purple/50 transition-all duration-300"
-                      >
-                        {/* Quarter badge */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-3 bg-gray-600/20 text-gray-400">
-                          <Calendar className="w-3 h-3" />
-                          {item.quarter}
-                        </div>
-
-                        <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-gray-300 leading-relaxed text-sm mb-3">{item.description}</p>
-                        
-                        {/* Details */}
-                        {item.details && (
-                          <div className="mb-3">
-                            <h4 className="text-sm font-semibold text-neon-blue mb-1">Key Deliverables:</h4>
-                            <ul className="text-xs text-gray-400 space-y-1">
-                              {item.details.map((detail, i) => (
-                                <li key={i}>• {detail}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        
-                        {/* KPIs */}
-                        {item.kpis && (
-                          <div className="mb-3">
-                            <h4 className="text-sm font-semibold text-neon-purple mb-1">Success Metrics:</h4>
-                            <p className="text-xs text-gray-400">{item.kpis}</p>
-                          </div>
-                        )}
-
-                      </motion.div>
+        {/* Timeline container */}
+        <div ref={ref} className="relative pb-20">
+          {roadmapItems.map((item, index) => {
+            const Icon = item.icon
+            const isPrimary = item.variant === 'primary'
+            
+            return (
+              <div
+                key={index}
+                className="flex justify-start pt-10 md:pt-20 md:gap-10"
+              >
+                {/* Left side - Sticky date/quarter */}
+                <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+                  {/* Timeline node */}
+                  <div className={`h-10 absolute left-3 md:left-3 w-10 rounded-full bg-dobi-dark flex items-center justify-center`}>
+                    <div className={`
+                      h-4 w-4 rounded-full bg-gradient-to-r ${item.color}
+                      border-2 border-dobi-dark shadow-lg relative flex items-center justify-center
+                    `}>
+                      <Icon className="w-2.5 h-2.5 text-white" />
                     </div>
+                    <div className={`
+                      absolute inset-0 rounded-full animate-pulse
+                      bg-gradient-to-r ${item.color} opacity-30
+                    `} />
                   </div>
+                  
+                  {/* Date text - Desktop */}
+                  <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-gray-400 dark:text-gray-500">
+                    {item.quarter}
+                  </h3>
+                </div>
 
-                  {/* Desktop Layout */}
-                  <div className={`hidden lg:flex items-center ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
-                    {/* Content */}
-                    <div className={`w-5/12 ${isLeft ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                      <motion.div
-                        whileHover={{ scale: 1.02 }}
-                        className="bg-gradient-to-br from-dobi-gray/80 to-dobi-dark/80 backdrop-blur-sm border border-gray-600/50 rounded-2xl p-6 hover:border-neon-purple/50 transition-all duration-300"
-                      >
-                        {/* Quarter badge */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium mb-4 bg-gray-600/20 text-gray-400">
-                          <Calendar className="w-3 h-3" />
-                          {item.quarter}
-                        </div>
+                {/* Right side - Content card */}
+                <div className="relative pl-20 pr-4 md:pl-4 w-full">
+                  {/* Date text - Mobile */}
+                  <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-400">
+                    {item.quarter}
+                  </h3>
+                  
+                  <MilestoneCard item={item} index={index} />
+                </div>
+              </div>
+            )
+          })}
 
-                        <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-                        <p className="text-gray-300 leading-relaxed mb-4">{item.description}</p>
-                        
-                        {/* Details */}
-                        {item.details && (
-                          <div className="mb-4">
-                            <h4 className="text-sm font-semibold text-neon-blue mb-2">Key Deliverables:</h4>
-                            <ul className="text-sm text-gray-400 space-y-1">
-                              {item.details.map((detail, i) => (
-                                <li key={i}>• {detail}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                        
-                        {/* KPIs */}
-                        {item.kpis && (
-                          <div className="mb-4">
-                            <h4 className="text-sm font-semibold text-neon-purple mb-2">Success Metrics:</h4>
-                            <p className="text-sm text-gray-400">{item.kpis}</p>
-                          </div>
-                        )}
-
-                      </motion.div>
-                    </div>
-
-                    {/* Timeline node */}
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                      viewport={{ once: true }}
-                      className="relative w-2/12 flex justify-center"
-                    >
-                      <div className={`w-16 h-16 rounded-full bg-gradient-to-r ${item.color} p-4 border-4 border-dobi-dark shadow-lg`}>
-                        <Icon className="w-full h-full text-white" />
-                      </div>
-                      <div className={`absolute inset-0 w-16 h-16 rounded-full bg-gradient-to-r ${item.color} opacity-20 blur-xl animate-pulse`}></div>
-                    </motion.div>
-
-                    {/* Spacer */}
-                    <div className="w-5/12"></div>
-                  </div>
-                </motion.div>
-              )
-            })}
+          {/* Animated timeline line */}
+          <div
+            style={{
+              height: height + 'px',
+            }}
+            className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-dobi-blue/30 dark:via-neon-purple/30 to-transparent to-[99%] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          >
+            <motion.div
+              style={{
+                height: heightTransform,
+                opacity: opacityTransform,
+              }}
+              className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-dobi-blue via-neon-purple to-transparent from-[0%] via-[10%] rounded-full"
+            />
           </div>
         </div>
-
-
-
-
       </div>
     </section>
   )
