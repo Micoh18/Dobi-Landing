@@ -16,7 +16,7 @@ const values = [
     icon: Zap,
     title: 'Total Automation',
     description: 'Self-managing assets with AI. Monitoring, validation and automatic execution without human intervention.',
-    color: 'from-neon-purple to-dobi-magenta',
+    color: 'from-dobi-blue to-neon-cyan',
     caption: 'AI monitoring, validation, execution without human intervention'
   },
   {

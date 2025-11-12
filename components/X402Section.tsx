@@ -14,7 +14,7 @@ const useCases = [
   },
   {
     icon: Cpu,
-    title: 'IoT Station',
+    title: 'Iot Station',
     description: 'Pays for maintenance only when needed',
     speed: 'Real-time cost optimization',
     gradient: 'from-electric-blue to-dobi-blue'
