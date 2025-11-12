@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Shield, TrendingUp, Users, Zap, CheckCircle, Info } from 'lucide-react'
 import { useState } from 'react'
+import GradientText from '@/components/ui/GradientText'
 
 const tokenomicsData = {
   totalSupply: 1000000000,
@@ -93,7 +94,7 @@ export default function Tokenomics() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
           >
-            Tokenomics — <span className="gradient-text">Virtuals.io Fair Launch</span>
+            Tokenomics — <GradientText variant="hero">Virtuals.io Fair Launch</GradientText>
           </motion.h2>
           
           <motion.p

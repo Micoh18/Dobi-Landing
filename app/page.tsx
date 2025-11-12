@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar'
 import HeroSection from '../components/HeroSection'
 import ValueSection from '../components/ValueSection'
 import HowItWorks from '../components/HowItWorks'
+import X402Section from '../components/X402Section'
 import UseCases from '../components/UseCases'
 import Roadmap from '../components/Roadmap'
 import Tokenomics from '../components/Tokenomics'
@@ -20,6 +21,7 @@ export default function Home() {
         <HeroSection />
         <ValueSection />
         <HowItWorks />
+        <X402Section />
         <UseCases />
         <FlappyDobi />
         <Roadmap />

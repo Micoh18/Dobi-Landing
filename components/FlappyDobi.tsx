@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Gamepad2, ExternalLink, Sparkles } from 'lucide-react'
+import GradientText from '@/components/ui/GradientText'
 
 export default function FlappyDobi() {
   return (
@@ -56,7 +57,7 @@ export default function FlappyDobi() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight text-futuristic"
           >
-            <span className="gradient-text text-glow">Flappy DOBI</span>
+            <GradientText variant="hero" className="text-glow">Flappy DOBI</GradientText>
           </motion.h2>
           
           <motion.p
@@ -137,7 +138,7 @@ export default function FlappyDobi() {
             <div>
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
                 Play on{' '}
-                <span className="gradient-text">Farcaster</span>
+                <GradientText variant="accent">Farcaster</GradientText>
               </h3>
               <p className="text-gray-300 leading-relaxed mb-6">
                 Flappy DOBI is the official DOBI community game deployed on Farcaster. 

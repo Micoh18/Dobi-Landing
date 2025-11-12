@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Calendar, Globe, Link, CheckCircle, Bot, DollarSign, Users, Shield, Zap, Target } from 'lucide-react'
+import GradientText from '@/components/ui/GradientText'
 
 const roadmapItems = [
   {
@@ -202,7 +203,7 @@ export default function Roadmap() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight tracking-tight"
           >
             DOBI 2025-26{' '}
-            <span className="gradient-text">Roadmap</span>
+            <GradientText variant="hero">Roadmap</GradientText>
           </motion.h2>
           
           <motion.p

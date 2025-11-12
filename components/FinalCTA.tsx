@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, Users, DollarSign, Sparkles } from 'lucide-react'
+import GradientText from '@/components/ui/GradientText'
 
 // Custom Twitter/X Icon Component
 const TwitterIcon = ({ className }: { className?: string }) => (
@@ -112,11 +113,11 @@ export default function FinalCTA() {
             viewport={{ once: true }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight text-futuristic"
           >
-            <span className="gradient-text text-glow">DOBI:</span> the onchain AI agent
+            <GradientText variant="hero" className="text-glow">DOBI:</GradientText> the onchain AI agent
             <br />
             that converts real assets into
             <br />
-            <span className="gradient-text text-glow">smart investments</span>
+            <GradientText variant="hero" className="text-glow">smart investments</GradientText>
           </motion.h2>
 
           {/* Supporting text */}

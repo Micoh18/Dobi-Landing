@@ -52,19 +52,96 @@ body {
   box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
-/* Enhanced gradient text utility */
+/* Premium gradient text utilities - Natural and subtle */
 .gradient-text {
-  background: linear-gradient(135deg, #00d4ff 0%, #22d3ee 25%, #a855f7 75%, #d946ef 100%);
+  background: linear-gradient(135deg, #00d4ff 0%, #0ea5e9 40%, #a855f7 60%, #d946ef 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   background-size: 200% 200%;
-  animation: gradient-shift 3s ease-in-out infinite;
+  animation: gradient-shift-premium 8s ease-in-out infinite;
+  filter: saturate(1.05);
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
 }
 
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+.gradient-text-soft {
+  background: linear-gradient(120deg, #00d4ff 0%, #22d3ee 50%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift-premium 12s ease-in-out infinite;
+  filter: saturate(1.02);
+}
+
+.gradient-text-accent {
+  background: linear-gradient(45deg, #a855f7 0%, #d946ef 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient-shift-premium 10s ease-in-out infinite;
+  filter: saturate(1.03);
+}
+
+@keyframes gradient-shift-premium {
+  0%, 100% { 
+    background-position: 0% 50%;
+    filter: saturate(1.05);
+  }
+  50% { 
+    background-position: 100% 50%;
+    filter: saturate(1.08);
+  }
+}
+
+/* Animated gradient classes for Tailwind */
+.animate-gradient-shift {
+  animation: gradient-shift-premium 8s ease-in-out infinite;
+}
+
+.animate-gradient-shift-slow {
+  animation: gradient-shift-premium 12s ease-in-out infinite;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text,
+  .gradient-text-soft,
+  .gradient-text-accent,
+  .animate-gradient-shift,
+  .animate-gradient-shift-slow {
+    animation: none !important;
+    background-size: 100% 100% !important;
+  }
+}
+
+/* Layered gradient overlays for depth */
+.gradient-overlay-soft {
+  position: relative;
+}
+
+.gradient-overlay-soft::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-overlay-conic {
+  position: relative;
+}
+
+.gradient-overlay-conic::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(from 0deg at 50% 50%, rgba(0, 212, 255, 0.05) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(0, 212, 255, 0.05) 100%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.6;
 }
 
 /* Enhanced glowing border effect */

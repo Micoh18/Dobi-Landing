@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Car, Factory, TrendingUp, ArrowRight } from 'lucide-react'
+import GradientText from '@/components/ui/GradientText'
 
 const useCases = [
   {
@@ -91,7 +92,7 @@ export default function UseCases() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
           >
             Real-world{' '}
-            <span className="gradient-text text-glow">Use Cases</span>
+            <GradientText variant="hero" className="text-glow">Use Cases</GradientText>
           </motion.h2>
           
           <motion.p
@@ -105,21 +106,22 @@ export default function UseCases() {
           </motion.p>
         </motion.div>
 
-        {/* Use cases grid */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {useCases.map((useCase, index) => {
-            const Icon = useCase.icon
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="group"
-              >
-                <div className="relative h-full rounded-2xl bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 p-8 hover:border-dobi-blue/50 transition-all duration-500 shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10">
+        {/* Bento grid layout: One large featured card + two smaller cards */}
+        <div className="grid lg:grid-cols-10 gap-6 items-stretch">
+          {/* Large featured card (60% width) */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10, scale: 1.01 }}
+            className="lg:col-span-6 group flex"
+          >
+            {(() => {
+              const useCase = useCases[0]
+              const Icon = useCase.icon
+              return (
+                <div className="relative h-full min-h-[500px] rounded-2xl bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 p-8 md:p-12 hover:border-dobi-blue/50 transition-all duration-500 shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10 flex flex-col w-full">
                   {/* Enhanced background effects */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`}></div>
                   <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-60"></div>
@@ -129,39 +131,40 @@ export default function UseCases() {
                   <div className="absolute top-4 right-4 w-3 h-3 border-t-2 border-r-2 border-dobi-blue/60 rounded-tr-lg"></div>
                   <div className="absolute bottom-4 left-4 w-3 h-3 border-b-2 border-l-2 border-neon-purple/60 rounded-bl-lg"></div>
                   
-                  {/* Icon */}
+                  {/* Icon - larger for featured */}
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.3 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="relative mb-6"
+                    className="relative mb-8"
                   >
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${useCase.gradient} p-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${useCase.gradient} p-5 group-hover:scale-110 transition-transform duration-300`}>
                       <Icon className="w-full h-full text-white" />
                     </div>
-                    <div className={`absolute inset-0 w-16 h-16 rounded-2xl bg-gradient-to-r ${useCase.gradient} opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300`}></div>
+                    <div className={`absolute inset-0 w-20 h-20 rounded-2xl bg-gradient-to-r ${useCase.gradient} opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300`}></div>
                   </motion.div>
 
                   {/* Header */}
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.5 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="mb-4"
+                    className="mb-6"
                   >
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-neon-blue group-hover:to-neon-purple transition-all duration-300">
-                      {useCase.title}
+                    <h3 className="text-3xl md:text-4xl font-bold mb-3 transition-all duration-300 relative">
+                      <span className="text-white group-hover:opacity-0 transition-opacity duration-300">{useCase.title}</span>
+                      <GradientText variant="cyan-purple" className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{useCase.title}</GradientText>
                     </h3>
                     <motion.div
                       initial={{ scaleX: 0 }}
                       whileInView={{ scaleX: 1 }}
-                      transition={{ duration: 0.8, delay: index * 0.2 + 0.7 }}
+                      transition={{ duration: 0.8, delay: 0.7 }}
                       viewport={{ once: true }}
-                      className={`h-px bg-gradient-to-r ${useCase.gradient} mb-3 origin-left`}
+                      className={`h-px bg-gradient-to-r ${useCase.gradient} mb-4 origin-left`}
                     />
-                    <p className={`text-sm font-medium bg-gradient-to-r ${useCase.gradient} bg-clip-text text-transparent`}>
+                    <p className={`text-base font-medium bg-gradient-to-r ${useCase.gradient} bg-clip-text text-transparent`}>
                       {useCase.subtitle}
                     </p>
                   </motion.div>
@@ -170,9 +173,9 @@ export default function UseCases() {
                   <motion.p
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.7 }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
                     viewport={{ once: true }}
-                    className="text-gray-300 leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300"
+                    className="text-gray-300 leading-relaxed mb-8 text-lg group-hover:text-gray-200 transition-colors duration-300"
                   >
                     {useCase.description}
                   </motion.p>
@@ -181,56 +184,151 @@ export default function UseCases() {
                   <motion.ul
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.2 + 0.9 }}
+                    transition={{ duration: 0.6, delay: 0.9 }}
                     viewport={{ once: true }}
-                    className="space-y-3 mb-6"
+                    className="space-y-4 mb-8"
                   >
                     {useCase.features.map((feature, i) => (
                       <motion.li
                         key={i}
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: index * 0.2 + 1 + i * 0.1 }}
+                        transition={{ duration: 0.4, delay: 1 + i * 0.1 }}
                         viewport={{ once: true }}
-                        className="flex items-center gap-3 text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300"
+                        className="flex items-center gap-3 text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-300"
                       >
-                        <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${useCase.gradient}`}></div>
+                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${useCase.gradient}`}></div>
                         {feature}
                       </motion.li>
                     ))}
                   </motion.ul>
 
-                  {/* Learn more link/button - only for Ehive */}
-                  {index === 0 && (
-                    <motion.a
-                      href="https://ehive.cc/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.2 + 1.2 }}
-                      viewport={{ once: true }}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="relative z-10 inline-flex items-center gap-2 bg-gradient-to-r from-dobi-blue to-neon-cyan text-white px-4 py-2 rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-dobi-blue/25 transition-all duration-300 cursor-pointer"
-                    >
-                      <span>Explore Use Case</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                    </motion.a>
-                  )}
+                  {/* Learn more link/button */}
+                  <motion.a
+                    href="https://ehive.cc/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.2 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative z-10 inline-flex items-center gap-2 bg-gradient-to-r from-dobi-blue to-neon-cyan text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg hover:shadow-dobi-blue/25 transition-all duration-300 cursor-pointer"
+                  >
+                    <span>Explore Use Case</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </motion.a>
 
                   {/* Bottom gradient line */}
                   <motion.div
                     initial={{ scaleX: 0 }}
                     whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 0.8, delay: index * 0.2 + 1.4 }}
+                    transition={{ duration: 0.8, delay: 1.4 }}
                     viewport={{ once: true }}
                     className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r ${useCase.gradient} origin-left group-hover:h-2 transition-all duration-300`}
                   />
                 </div>
-              </motion.div>
-            )
-          })}
+              )
+            })()}
+          </motion.div>
+
+          {/* Two smaller cards stacked (40% width) */}
+          <div className="lg:col-span-4 space-y-6 flex flex-col justify-stretch">
+            {useCases.slice(1).map((useCase, index) => {
+              const Icon = useCase.icon
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 + index * 0.2 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -5 }}
+                  className="group flex flex-1"
+                >
+                  <div className="relative h-full rounded-2xl bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 p-6 hover:border-dobi-blue/50 transition-all duration-500 shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10 flex flex-col w-full">
+                    {/* Enhanced background effects */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-0 group-hover:opacity-[0.08] transition-opacity duration-500`}></div>
+                    <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-60"></div>
+                    
+                    {/* Icon */}
+                    <motion.div
+                      initial={{ scale: 0.8, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ duration: 0.6, delay: 0.5 + index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="relative mb-4"
+                    >
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${useCase.gradient} p-3 group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="w-full h-full text-white" />
+                      </div>
+                    </motion.div>
+
+                    {/* Header */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="mb-3"
+                    >
+                      <h3 className="text-xl font-bold mb-2 transition-all duration-300 relative">
+                        <span className="text-white group-hover:opacity-0 transition-opacity duration-300">{useCase.title}</span>
+                        <GradientText variant="cyan-purple" className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{useCase.title}</GradientText>
+                      </h3>
+                      <p className={`text-xs font-medium bg-gradient-to-r ${useCase.gradient} bg-clip-text text-transparent`}>
+                        {useCase.subtitle}
+                      </p>
+                    </motion.div>
+
+                    {/* Description */}
+                    <motion.p
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.7 + index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="text-sm text-gray-300 leading-relaxed mb-4 group-hover:text-gray-200 transition-colors duration-300"
+                    >
+                      {useCase.description}
+                    </motion.p>
+
+                    {/* Features list - compact */}
+                    <motion.ul
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 + index * 0.2 }}
+                      viewport={{ once: true }}
+                      className="space-y-2"
+                    >
+                      {useCase.features.slice(0, 2).map((feature, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.4, delay: 0.9 + index * 0.2 + i * 0.1 }}
+                          viewport={{ once: true }}
+                          className="flex items-center gap-2 text-xs text-gray-400 group-hover:text-gray-300 transition-colors duration-300"
+                        >
+                          <div className={`w-1 h-1 rounded-full bg-gradient-to-r ${useCase.gradient}`}></div>
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+
+                    {/* Bottom gradient line */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      transition={{ duration: 0.8, delay: 1 + index * 0.2 }}
+                      viewport={{ once: true }}
+                      className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r ${useCase.gradient} origin-left group-hover:h-1 transition-all duration-300`}
+                    />
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
 
         {/* Bottom CTA */}

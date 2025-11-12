@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import GradientText from '@/components/ui/GradientText'
 
 const navItems = [
   { name: 'Use Cases', href: '#use-cases' },
@@ -68,7 +69,7 @@ export default function Navbar() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <span className="text-xl md:text-2xl font-bold gradient-text">DOBI</span>
+              <GradientText variant="hero" className="text-xl md:text-2xl font-bold">DOBI</GradientText>
             </motion.a>
 
             {/* Desktop Menu */}
@@ -138,7 +139,7 @@ export default function Navbar() {
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <span className="text-xl font-bold gradient-text">DOBI</span>
+                    <GradientText variant="hero" className="text-xl font-bold">DOBI</GradientText>
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}

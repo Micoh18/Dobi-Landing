@@ -170,7 +170,8 @@ export default function HeroSection() {
               </span>
             </motion.div>
 
-            <motion.div
+            {/* Dobi x402 Button - Commented out for future use */}
+            {/* <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="group flex items-center gap-4 text-lg md:text-xl font-bold px-8 md:px-12 py-4 md:py-5 cursor-default relative overflow-hidden rounded-2xl border-2 border-dobi-blue/50 bg-gradient-to-r from-dobi-blue to-neon-cyan text-white shadow-lg shadow-dobi-blue/20 hover:shadow-xl hover:shadow-dobi-blue/30 transition-all duration-300"
@@ -179,7 +180,7 @@ export default function HeroSection() {
                 Dobi x402
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-            </motion.div>
+            </motion.div> */}
 
             <motion.a
               href="https://app.uniswap.org/explore/tokens/base/0x931ef8053e997b1bab68d1e900a061305c0ff4fb?inputCurrency=0x931ef8053e997b1bab68d1e900a061305c0ff4fb"
