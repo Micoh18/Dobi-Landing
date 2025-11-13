@@ -100,7 +100,7 @@ export default function ValueSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative w-full aspect-square max-w-[600px] mx-auto flex items-center justify-center"
+            className="relative w-full aspect-square max-w-[600px] mx-auto flex items-center justify-center lg:self-center"
             style={{ position: 'relative' }}
           >
             <svg 
@@ -403,7 +403,7 @@ export default function ValueSection() {
           </motion.div>
 
           {/* Right side: Content stacked vertically without cards */}
-          <div className="space-y-12">
+          <div className="space-y-12 flex flex-col justify-center">
             {values.map((value, index) => {
               const Icon = value.icon
               return (

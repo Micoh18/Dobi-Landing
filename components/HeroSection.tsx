@@ -165,7 +165,7 @@ export default function HeroSection() {
               className="group btn-primary flex items-center gap-4 text-lg md:text-xl font-bold px-8 md:px-12 py-4 md:py-5 cursor-default"
             >
               <span className="relative z-10 flex items-center gap-3 md:gap-4">
-                Dashboard (Coming Soon)
+                x402 App (Coming Soon)
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
             </motion.div>

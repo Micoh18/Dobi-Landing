@@ -17,7 +17,7 @@ const steps = [
     icon: Bot,
     title: 'DOBI validates and secures',
     description: 'Our onchain AI agent automatically analyzes, verifies and validates the authenticity and integrity of the data.',
-    color: 'from-neon-purple to-dobi-magenta'
+    color: 'from-dobi-blue to-neon-cyan'
   },
   {
     number: '03',
@@ -133,7 +133,7 @@ export default function HowItWorks() {
                   viewport={{ once: true }}
                   className="relative group"
                 >
-                  <div className="relative bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl p-8 h-full hover:border-dobi-blue/50 transition-all duration-500 group-hover:transform group-hover:scale-[1.02] shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10 hover:shadow-2xl hover:shadow-dobi-blue/20">
+                  <div className="relative bg-gradient-to-br from-dobi-gray/30 to-dobi-dark/70 backdrop-blur-xl border border-dobi-blue/20 rounded-2xl p-8 h-full flex flex-col hover:border-dobi-blue/50 transition-all duration-500 group-hover:transform group-hover:scale-[1.02] shadow-lg shadow-dobi-blue/5 hover:shadow-xl hover:shadow-dobi-blue/10 hover:shadow-2xl hover:shadow-dobi-blue/20">
                   {/* Card tech effects */}
                   <div className="absolute inset-0 bg-gradient-to-br from-dobi-blue/5 to-neon-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-dobi-blue to-transparent opacity-80"></div>
@@ -145,10 +145,10 @@ export default function HowItWorks() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.15 + 0.3 }}
                     viewport={{ once: true }}
-                    className="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-r from-dobi-blue to-electric-blue rounded-xl flex items-center justify-center font-bold text-lg text-white shadow-glow-blue border border-dobi-blue/50"
+                    className="absolute -top-3 -right-3 w-12 h-12 bg-gradient-to-r from-neon-purple to-dobi-magenta rounded-xl flex items-center justify-center font-bold text-lg text-white shadow-lg border border-neon-purple/50"
                   >
                     {step.number}
-                    <div className="absolute inset-0 bg-gradient-to-r from-dobi-blue to-electric-blue opacity-50 blur-lg rounded-xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-neon-purple to-dobi-magenta opacity-50 blur-lg rounded-xl"></div>
                   </motion.div>
 
                   {/* Icon */}
@@ -182,7 +182,7 @@ export default function HowItWorks() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.15 + 0.8 }}
                     viewport={{ once: true }}
-                    className="text-gray-300 leading-relaxed text-sm group-hover:text-gray-200 transition-colors duration-300"
+                    className="text-gray-300 leading-relaxed text-sm group-hover:text-gray-200 transition-colors duration-300 flex-grow"
                   >
                     {step.description}
                   </motion.p>

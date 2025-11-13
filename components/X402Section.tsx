@@ -1,32 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Shield, Zap, ArrowRight, Cloud, Cpu, Brain } from 'lucide-react'
+import { Shield, ArrowRight } from 'lucide-react'
 import GradientText from '@/components/ui/GradientText'
-
-const useCases = [
-  {
-    icon: Cloud,
-    title: 'Autonomous Drone',
-    description: 'Purchases precise climatology data before each flight',
-    speed: 'Instant speed',
-    gradient: 'from-dobi-blue to-neon-cyan'
-  },
-  {
-    icon: Cpu,
-    title: 'Iot Station',
-    description: 'Pays for maintenance only when needed',
-    speed: 'Real-time cost optimization',
-    gradient: 'from-electric-blue to-dobi-blue'
-  },
-  {
-    icon: Brain,
-    title: 'AI Model',
-    description: 'Unlocks verified datasets and updates instantly',
-    speed: 'Frictionless continuous learning',
-    gradient: 'from-neon-purple to-dobi-magenta'
-  }
-]
 
 export default function X402Section() {
   return (
@@ -96,12 +72,13 @@ export default function X402Section() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-futuristic leading-tight tracking-tight"
           >
-            What if your{' '}
+            <span className="text-dobi-blue">x402 + DOBI: </span>
+            what if your{' '}
             <span className="text-white">AI could</span>
             <br />
-            <span className="text-dobi-blue">pay by itself</span>
+            <span className="text-white">pay by itself</span>
             <span className="text-white"> for what it needs?</span>
           </motion.h2>
           
@@ -112,7 +89,7 @@ export default function X402Section() {
             viewport={{ once: true }}
             className="text-lg md:text-xl text-gray-300/90 max-w-3xl mx-auto leading-relaxed"
           >
-            x402 + DOBI: The autonomous economy that breathes in real-time
+            
           </motion.p>
         </motion.div>
 
@@ -130,7 +107,7 @@ export default function X402Section() {
             <div className="relative backdrop-blur-md bg-gradient-to-br from-dobi-blue/5 via-transparent to-transparent rounded-2xl p-8 md:p-10 hover:bg-dobi-blue/10 transition-all duration-500 w-full flex flex-col">
               <div className="mb-8">
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-r from-dobi-blue to-neon-cyan p-5 group-hover:scale-110 transition-transform duration-300 inline-flex items-center justify-center">
-                  <span className="text-3xl font-bold text-white">402</span>
+                  <span className="text-3xl font-bold text-white">x402</span>
                 </div>
                 <div className="absolute w-20 h-20 rounded-2xl bg-gradient-to-r from-dobi-blue to-neon-cyan opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300" />
               </div>
@@ -141,11 +118,11 @@ export default function X402Section() {
               </h3>
               
               <p className="text-gray-300 leading-relaxed mb-6 text-lg group-hover:text-gray-200 transition-colors duration-300 flex-grow" style={{ lineHeight: '1.7' }}>
-                Implements HTTP 402 ('Payment Required') code so every API, sensor, or service can open on demand. Machines detect, request, pay, and use data in seconds. No humans in between.
+                Implements HTTP 402 (&apos;Payment Required&apos;) code so every API, sensor, or service can open on demand. Machines detect, request, pay, and use data in seconds. No humans in between.
               </p>
 
               <a 
-                href="https://www.x402.org/" 
+                href="https://www.coinbase.com/developer-platform/products/x402" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-dobi-blue hover:text-neon-cyan transition-colors text-sm font-medium inline-flex items-center gap-2 mt-auto"
@@ -184,53 +161,52 @@ export default function X402Section() {
           </motion.div>
         </div>
 
-        {/* Use Cases - Minimal cards without borders */}
+        {/* Stylized text content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           viewport={{ once: true }}
-          className="mb-20 md:mb-32"
+          className="mb-20 md:mb-32 max-w-5xl mx-auto text-center"
         >
-          <div className="grid md:grid-cols-3 gap-8 items-stretch">
-            {useCases.map((useCase, index) => {
-              const Icon = useCase.icon
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 + index * 0.15 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                  className="group relative flex"
-                >
-                  {/* Minimal glassmorphism - no borders */}
-                  <div className="relative backdrop-blur-sm bg-gradient-to-br from-dobi-blue/5 to-transparent rounded-xl p-6 hover:bg-dobi-blue/10 transition-all duration-500 w-full flex flex-col">
-                    <div className="mb-4">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${useCase.gradient} p-3.5 group-hover:scale-110 transition-transform duration-300 inline-flex items-center justify-center`}>
-                        <Icon className="w-full h-full text-white" />
-                      </div>
-                    </div>
+          {/* Main headline */}
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-10 text-futuristic leading-tight tracking-tight"
+          >
+            <span className="text-dobi-blue">DOBI + x402</span>
+            {' '}turn your machines into{' '}
+            <span className="text-dobi-blue">autonomous customers</span>:
+          </motion.h3>
+          
+          {/* Second part of headline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            viewport={{ once: true }}
+            className="text-lg text-gray-300 mb-0 leading-relaxed"
+            style={{ lineHeight: '1.7' }}
+          >
+            they don&apos;t just stream data, they pay on their own for what they need.
+          </motion.p>
+          
+          {/* Description paragraph 1 */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            viewport={{ once: true }}
+            className="text-lg text-gray-300 mb-6 leading-relaxed"
+            style={{ lineHeight: '1.7' }}
+          >
+            Once DOBI verifies a device is live and generating value, it triggers x402 payments for data, energy, connectivity, or maintenance.
+          </motion.p>
 
-                    <h4 className="text-xl font-bold mb-3 transition-all duration-300 relative">
-                      <span className="text-white group-hover:opacity-0 transition-opacity duration-300">{useCase.title}</span>
-                      <GradientText variant="cyan-purple" className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{useCase.title}</GradientText>
-                    </h4>
-                    
-                    <p className="text-gray-300 mb-4 leading-relaxed group-hover:text-gray-200 transition-colors duration-300 flex-grow">
-                      {useCase.description}
-                    </p>
-
-                    <div className="flex items-center gap-2 text-sm text-dobi-blue mt-auto">
-                      <Zap className="w-4 h-4" />
-                      <span>{useCase.speed}</span>
-                    </div>
-                  </div>
-                </motion.div>
-              )
-            })}
-          </div>
+        
         </motion.div>
 
         {/* Final CTA */}
@@ -254,7 +230,9 @@ export default function X402Section() {
           </motion.h3>
 
           <motion.a
-            href="#x402"
+            href="https://www.coinbase.com/developer-platform/products/x402"
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}

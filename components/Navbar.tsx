@@ -6,10 +6,12 @@ import { useState, useEffect } from 'react'
 import GradientText from '@/components/ui/GradientText'
 
 const navItems = [
+  { name: 'x402', href: '#x402' },
   { name: 'Use Cases', href: '#use-cases' },
-  { name: 'Flappy DOBI', href: '#flappy-dobi' },
   { name: 'Roadmap', href: '#roadmap' },
   { name: 'Tokenomics', href: '#tokenomics' },
+  { name: 'Flappy DOBI', href: '#flappy-dobi' },
+  { name: 'Social Networks', href: '#social-networks' },
 ]
 
 const allNavItems = [
@@ -34,8 +36,8 @@ export default function Navbar() {
     setIsOpen(false)
     const element = document.querySelector(href)
     if (element) {
-      // Special offset for Flappy DOBI section to show the CTA button
-      const offset = href === '#flappy-dobi' ? -120 : 100 // Offset for fixed navbar
+      // Special offset for Flappy DOBI and Social Networks sections to show the CTA button
+      const offset = (href === '#flappy-dobi' || href === '#social-networks') ? -120 : 100 // Offset for fixed navbar
       const elementTop = element.getBoundingClientRect().top + window.scrollY
       const offsetPosition = elementTop - offset
 

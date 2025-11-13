@@ -23,9 +23,9 @@ export default function Home() {
         <HowItWorks />
         <X402Section />
         <UseCases />
-        <FlappyDobi />
         <Roadmap />
         <Tokenomics />
+        <FlappyDobi />
         <FinalCTA />
       </div>
     </main>
