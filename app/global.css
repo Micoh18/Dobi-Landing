@@ -51,7 +51,7 @@ body {
 
 /* Módulo base para el grid - mismo espaciado para ambas capas */
 .isometric-grid::before {
-  /* Solo 2 familias: 30° y 150° con el mismo módulo */
+  /* Solo 2 familias: 30° y 150° con el mismo módulo exacto */
   background-image: 
     repeating-linear-gradient(
       30deg,
@@ -67,7 +67,6 @@ body {
       rgba(0, 212, 255, 0.4) 49px,
       rgba(0, 212, 255, 0.4) 50px
     );
-  /* background-size coherente con el módulo */
   background-size: 100px 100px;
   background-position: 0 0;
   transform: perspective(800px) rotateX(75deg) rotateZ(-15deg);
@@ -76,7 +75,7 @@ body {
 }
 
 .isometric-grid::after {
-  /* Segunda capa más sutil, mismo módulo pero más grande */
+  /* Segunda capa más sutil, módulo doble */
   background-image: 
     repeating-linear-gradient(
       30deg,
@@ -92,7 +91,6 @@ body {
       rgba(0, 212, 255, 0.2) 99px,
       rgba(0, 212, 255, 0.2) 100px
     );
-  /* background-size múltiplo del módulo base */
   background-size: 200px 200px;
   background-position: 0 0;
   transform: perspective(800px) rotateX(75deg) rotateZ(-15deg);
